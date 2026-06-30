@@ -104,9 +104,9 @@ export interface ResultProfile {
   /** 结果长文案，后续阶段补充。 */
   description: string;
   /** 该结果在游戏行为上的典型特征列表（占位，后续补充）。 */
-  traits: string[];
+  photo: string;
   /** 推荐的游戏玩法/职业方向（占位）。 */
-  recommendations: string[];
+  recommend: string[];
 }
 
 /* ------------------------------------------------------------------ */
