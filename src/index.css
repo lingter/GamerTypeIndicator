@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+/* Tailwind v4 全局入口。
+   主题 token 在后续 UI 阶段补充（颜色/字体/动效），
+   当前只保证基础 reset 与默认断点可用。 */

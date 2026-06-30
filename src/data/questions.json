@@ -1,0 +1,762 @@
+[
+  {
+    "id": "q-scn-d1-001",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "你正在体验一款以宏大世界观和感人剧情著称的RPG游戏，但在推进主线时，你遇到了一个难度极高、需要反复试错的Boss战，导致你卡关了整整两个小时，心情有些烦躁。",
+    "prompt": "此时你会？",
+    "options": [
+      {
+        "text": "感到疲惫，觉得体验被打断了，宁愿去开修改器或者暂时放下游戏",
+        "pole": "I",
+        "likelihood": 0.85
+      },
+      {
+        "text": "感到兴奋，立刻去查攻略或调整战术，不把Boss拿下绝不睡觉",
+        "pole": "C",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-002",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "在某款战争题材的游戏里，你正在进行一场艰苦的战役。战役途中，你遇到了一个在废墟里喝酒的npc，他要和你讲他的悲惨故事。",
+    "prompt": "你的反应是？",
+    "options": [
+      {
+        "text": "眼下的战役任务十分困难，我没空分心听他讲故事",
+        "pole": "C",
+        "likelihood": 0.75
+      },
+      {
+        "text": "停下脚步，静静地听npc讲故事，体验剧情",
+        "pole": "I",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-003",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "你正在玩一款竞技类或硬核动作游戏，刚刚经历了一场极其惨烈的对局，虽然你拼尽全力，但因为失误或机制不熟，最终还是输掉了。",
+    "prompt": "你的第一反应是？",
+    "options": [
+      {
+        "text": "复盘刚才的失误，分析哪里可以做得更好，并立刻点击“再来一局”",
+        "pole": "C",
+        "likelihood": 0.85
+      },
+      {
+        "text": "感到沮丧或生气，觉得这局游戏体验极差，决定退出游戏去看会儿视频或做点别的",
+        "pole": "I",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-004",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "游戏推出了一款全新的“家园装修/外观搭配”系统，没有任何属性加成，纯粹是为了好看。",
+    "prompt": "你会花多少时间在上面？",
+    "options": [
+      {
+        "text": "愿意花几个小时甚至几天去精心搭配，享受在这个虚拟世界里创造美的过程",
+        "pole": "I",
+        "likelihood": 0.85
+      },
+      {
+        "text": "随便弄弄就行，只要不影响战斗和推图，没必要在这上面浪费太多精力",
+        "pole": "C",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-005",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "你正在游玩一款难度较大的闯关游戏，在你花了两个小时，拼尽全力通了一关后。",
+    "prompt": "你的感受是？",
+    "options": [
+      {
+        "text": "获得极强的成就感，并想下次继续玩",
+        "pole": "C",
+        "likelihood": 0.90
+      },
+      {
+        "text": "感到极其疲劳，不休息几天不会继续玩这个游戏，或者干脆弃坑",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-006",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "初次游玩某开放世界游戏时，前期的你误入了后期区域，被敌人狠狠压制。不知情的你尝试了几次后，发现只要操作得当，这些敌人也能勉强应对。当你后面得知自己误入后期区域时。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "这些敌人并非不可战胜，我要继续待在后期区域",
+        "pole": "C",
+        "likelihood": 0.70
+      },
+      {
+        "text": "与其在这里受苦，不如回到前期区域发育，还能体验到完整的游戏流程",
+        "pole": "I",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d1-007",
+    "type": "scenario",
+    "dimension": "D1",
+    "scenario": "假若某款你所喜爱的游戏里有一项类似“无伤所有boss”的艰难成就。",
+    "prompt": "你会怎么做？",
+    "options": [
+      {
+        "text": "尽力而为，希望自己有朝一日也能达成这个成就",
+        "pole": "I",
+        "likelihood": 0.70
+      },
+      {
+        "text": "这项成就的有无不会影响游戏流程与剧情体验，无视它",
+        "pole": "C",
+        "likelihood": 0.60
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d1-008",
+    "type": "plain",
+    "dimension": "D1",
+    "scenario": "",
+    "prompt": "玩游戏时，我乐意于挑战高难度游戏或游戏中的高难度模式",
+    "options": [
+      {
+        "text": "是",
+        "pole": "C",
+        "likelihood": 0.95
+      },
+      {
+        "text": "否",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d1-009",
+    "type": "plain",
+    "dimension": "D1",
+    "scenario": "",
+    "prompt": "你认为rpg游戏里哪一方面的体验更重要？",
+    "options": [
+      {
+        "text": "剧情",
+        "pole": "I",
+        "likelihood": 0.90
+      },
+      {
+        "text": "战斗环节",
+        "pole": "C",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d1-010",
+    "type": "plain",
+    "dimension": "D1",
+    "scenario": "",
+    "prompt": "以下哪一种游戏场景你会更加喜欢？",
+    "options": [
+      {
+        "text": "作为一名地牢囚犯，冲破艰难险阻逃出地牢",
+        "pole": "C",
+        "likelihood": 0.85
+      },
+      {
+        "text": "作为一名观光客，在游戏世界游走，见证npc们的悲欢离合",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-011",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "你在玩一款策略游戏，发现了一个官方可能没想到的“逃课打法”（利用地形或机制漏洞轻松过关）。",
+    "prompt": "你的态度是？",
+    "options": [
+      {
+        "text": "觉得这破坏了游戏平衡，坚持用正常、符合设计初衷的方式去通关",
+        "pole": "R",
+        "likelihood": 0.85
+      },
+      {
+        "text": "觉得非常有趣，会多尝试以这种方式通关",
+        "pole": "C",
+        "likelihood": 0.75
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-012",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "在RPG游戏的技能加点界面，你有一套经过精密计算、伤害最大化的“无脑Build”，但另一个技能看起来机制很奇葩，伤害也不高，但招式玩起来感觉异常有趣。",
+    "prompt": "你会尝试吗？",
+    "options": [
+      {
+        "text": "会，哪怕牺牲一点强度，也想看看这个奇葩技能到底能组合出什么花样",
+        "pole": "C",
+        "likelihood": 0.85
+      },
+      {
+        "text": "不会，既然有最优解，就没必要去浪费资源试错",
+        "pole": "R",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-013",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "你正在玩一款工厂类模拟游戏，系统提供了一排整齐划一的预制的工业模块，但你发现官方还提供自定义模块编辑器。",
+    "prompt": "你会？",
+    "options": [
+      {
+        "text": "用预制模块，跟着官方的思路走不会太差，相比研究自定义模块能节省大量时间",
+        "pole": "R",
+        "likelihood": 0.80
+      },
+      {
+        "text": "放弃预制模块，花几个小时去研究自定义模块，实现产量最大化",
+        "pole": "C",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-014",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "在一款带有角色扮演的游戏中，系统给你分配了一个“救世主”的伟光正身份。但你在游玩时发现系统并不会阻拦你做一些小偷小盗的事情。",
+    "prompt": "你会？",
+    "options": [
+      {
+        "text": "尽量配合系统的设定，扮演好一个英雄，这样能获得最好的剧情体验",
+        "pole": "R",
+        "likelihood": 0.85
+      },
+      {
+        "text": "觉得这很有趣，想多试试看看会有什么意外的事情发生",
+        "pole": "C",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-015",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "你在一款生存游戏中，发现可以通过把两个完全不相关的物品（比如平底锅和火把）合成，做出一个能发射火球的奇葩武器。",
+    "prompt": "你的反应是？",
+    "options": [
+      {
+        "text": "觉得很出戏，很突兀，不太喜欢这样的设计",
+        "pole": "R",
+        "likelihood": 0.75
+      },
+      {
+        "text": "觉得很有趣，并继续发掘游戏中脑洞打开的设计",
+        "pole": "C",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-016",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "你在玩一款肉鸽游戏，但游戏中的主角拥有海量的局外天赋，想要把这些局外天赋全部解锁需要花大量时间。",
+    "prompt": "对此你怎么看？",
+    "options": [
+      {
+        "text": "觉得这种设计严重拖累了玩家对游戏构筑的探索，想要开修改器把角色的所有局外天赋解锁",
+        "pole": "C",
+        "likelihood": 0.60
+      },
+      {
+        "text": "觉得这种设计是游戏体验的一环，愿意慢慢肝来解锁这些天赋",
+        "pole": "R",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d2-017",
+    "type": "scenario",
+    "dimension": "D2",
+    "scenario": "你新入坑了一款游戏，但这款游戏的新手引导做得很差。",
+    "prompt": "对此你会？",
+    "options": [
+      {
+        "text": "上网搜攻略，一步步照着打，或者干脆弃坑",
+        "pole": "R",
+        "likelihood": 0.75
+      },
+      {
+        "text": "坚持一步一个脚印的自主探索",
+        "pole": "C",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d2-018",
+    "type": "plain",
+    "dimension": "D2",
+    "scenario": "",
+    "prompt": "你对大多数游戏中的“引导”系统持怎样的态度？",
+    "options": [
+      {
+        "text": "游戏引导很重要，关系到我在游戏中的目标",
+        "pole": "R",
+        "likelihood": 0.85
+      },
+      {
+        "text": "游戏引导不重要，某些情况它还会阻碍我对游戏的探索",
+        "pole": "C",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d2-019",
+    "type": "plain",
+    "dimension": "D2",
+    "scenario": "",
+    "prompt": "倘若你玩《我的世界》，那你更喜欢下面哪一种游玩方式？",
+    "options": [
+      {
+        "text": "进入服务器，游玩那些被精心设计的小游戏",
+        "pole": "R",
+        "likelihood": 0.80
+      },
+      {
+        "text": "开启个人存档，自己或叫上好友一起自由探索游戏内容",
+        "pole": "C",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d2-020",
+    "type": "plain",
+    "dimension": "D2",
+    "scenario": "",
+    "prompt": "游玩游戏时，你对游戏模组的看法是？",
+    "options": [
+      {
+        "text": "尽可能寻找有趣的模组，在琳琅满目的模组中探索游戏的不同玩法，有技术的情况下甚至还想自己开发模组",
+        "pole": "C",
+        "likelihood": 0.90
+      },
+      {
+        "text": "随便加几个优化体验的模组就行了，没必要搞太多，剩下的跟着游戏本体流程走就行",
+        "pole": "R",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-021",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "在一款多人联机合作游戏中，你通过线上随机匹配，匹配到了一个新人玩家，对游戏十分不熟悉。",
+    "prompt": "对此你会？",
+    "options": [
+      {
+        "text": "仅使用游戏内角色的快捷语音或快捷标记来进行简单的引导",
+        "pole": "I",
+        "likelihood": 0.80
+      },
+      {
+        "text": "亲手打字，甚至开麦来为新人玩家讲解游戏机制",
+        "pole": "E",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-022",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "你刚刚在游戏里完成了一个难度极高的成就，或者捏出了一个绝美的角色。",
+    "prompt": "你的第一冲动是？",
+    "options": [
+      {
+        "text": "立刻截图发朋友圈/公会群，看看大家的反应",
+        "pole": "E",
+        "likelihood": 0.90
+      },
+      {
+        "text": "自己静静欣赏，只把它留在自己的相册或回忆里",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-023",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "你在某款大型多人在线游戏（即mmo游戏，就像魔兽世界）中，与随机匹配的队友默契配合打通了一个副本，事后你的队友邀请你去他的游戏工会担任副会长。",
+    "prompt": "你会？",
+    "options": [
+      {
+        "text": "拒绝，我还是更喜欢一个人静静玩游戏，匹配路人队友一起玩只是少数时候",
+        "pole": "I",
+        "likelihood": 0.85
+      },
+      {
+        "text": "接受，我可以在这个游戏圈子有一定地位与发言权了",
+        "pole": "E",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-024",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "在一款多人合作游戏中，你遇到了一个难关，独自尝试了几个小时也过不去。",
+    "prompt": "这时你会：",
+    "options": [
+      {
+        "text": "去游戏论坛发帖求助大佬，或者尝试匹配路人队友来攻克难关",
+        "pole": "E",
+        "likelihood": 0.80
+      },
+      {
+        "text": "休息一会再试试，总能独自完成这个难关，毕竟不想玩游戏时被所谓的“大佬”到处指挥",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-025",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "“载具破坏 +500”！刚刚你在某款真实大战场游戏中打出了“手撕飞机”的操作，即一个难度极高的操作。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "只会在心里暗想：“嘿嘿，轻松拿捏！这游戏真好玩......”",
+        "pole": "I",
+        "likelihood": 0.75
+      },
+      {
+        "text": "开麦和队友说：“对面那烦人的飞机被我拿下了！”",
+        "pole": "E",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-026",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "“小队团灭！游戏失败”你正在玩一款多人合作闯关游戏，可是因为路人队友的失误，导致了游戏失败。",
+    "prompt": "你的反应是？",
+    "options": [
+      {
+        "text": "没多大事，与路人队友交流复盘，分析错误，再来一把",
+        "pole": "E",
+        "likelihood": 0.85
+      },
+      {
+        "text": "与别人玩游戏就是充满不确定因素，下次不开匹配或者玩单机更好",
+        "pole": "I",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d3-027",
+    "type": "scenario",
+    "dimension": "D3",
+    "scenario": "你在逛游戏论坛时，发现了一位新人玩家的求助帖，而你又恰巧是这个游戏的精英玩家。",
+    "prompt": "对此你会：",
+    "options": [
+      {
+        "text": "进入该帖，细致地回答帖主的问题，同时还倾囊相授你的独家攻略心得",
+        "pole": "E",
+        "likelihood": 0.85
+      },
+      {
+        "text": "看一眼帖子，心里为游戏能有新鲜血液注入而高兴，然后就划走了，不留下任何痕迹",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d3-028",
+    "type": "plain",
+    "dimension": "D3",
+    "scenario": "",
+    "prompt": "多人游戏中，匹配路人玩游戏时，你喜欢打字交流或者开麦交流吗？",
+    "options": [
+      {
+        "text": "是",
+        "pole": "E",
+        "likelihood": 0.90
+      },
+      {
+        "text": "否",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d3-029",
+    "type": "plain",
+    "dimension": "D3",
+    "scenario": "",
+    "prompt": "在游戏之外，你愿不愿意在论坛或QQ群里，和他人讨论游戏内容？",
+    "options": [
+      {
+        "text": "是",
+        "pole": "E",
+        "likelihood": 0.85
+      },
+      {
+        "text": "否",
+        "pole": "I",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d3-030",
+    "type": "plain",
+    "dimension": "D3",
+    "scenario": "",
+    "prompt": "假若你是某游戏的“大佬”，你有没有这样的意愿：与其他大佬抱团，形成类似一个“小团体”的组织，在你的游戏圈中享有一席之地？",
+    "options": [
+      {
+        "text": "是",
+        "pole": "E",
+        "likelihood": 0.80
+      },
+      {
+        "text": "否",
+        "pole": "I",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-031",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "在一款射击游戏中，你遭遇了背后的偷袭。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "瞬间做出反应，立刻转头和敌人对枪，享受电光火石之间决出胜负的快感",
+        "pole": "A",
+        "likelihood": 0.90
+      },
+      {
+        "text": "不冲动行事，先缩进掩体，呼叫旁边的队友支援，稳扎稳打地反击敌人",
+        "pole": "S",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-032",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "在一款竞技游戏中，你发现了一套强力连招，但这套强力连招需要极高的操作精度，稍有失误就会有“暴毙”的风险。",
+    "prompt": "对此你会：",
+    "options": [
+      {
+        "text": "疯狂练习这套连招，不论风险如何，都只为享受那种狠狠压制敌人的快感",
+        "pole": "A",
+        "likelihood": 0.85
+      },
+      {
+        "text": "放弃这种高风险高收益的打法，保持稳扎稳打的打法继续游戏",
+        "pole": "S",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-033",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "当你尝试攻略某arpg游戏（动作rpg）中某个强大的boss时。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "查找游戏图鉴，了解boss弱点，配一套针对性的装备",
+        "pole": "S",
+        "likelihood": 0.90
+      },
+      {
+        "text": "屡次与boss切磋，用心捕捉boss的每一个动作，最终做到见招拆招打赢boss",
+        "pole": "A",
+        "likelihood": 0.90
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-034",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "某款大战场pvp游戏中，玩家可以从两种角色中选择扮演：一是指挥官角色，能够纵观全局，给友军下达作战建议，以及投送火力支援；二是士兵角色，负责冲锋陷阵，与敌人短兵相接。",
+    "prompt": "你会更喜欢扮演哪一种角色？",
+    "options": [
+      {
+        "text": "更喜欢士兵，享受真实战场上的那种肾上腺素飙升的刺激感",
+        "pole": "A",
+        "likelihood": 0.85
+      },
+      {
+        "text": "更喜欢指挥官，享受依靠谋略来带领队伍走向胜利的感觉",
+        "pole": "S",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-035",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "夜里，你和你的冒险小队在大山上探险，但遇到了一帮土匪，幸运的是，这帮土匪在睡觉，哪怕是哨兵也在打瞌睡。如果你要为民除害，解决这帮土匪。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "发动奇袭，先给土匪们一个下马威，然后势如破竹地全歼敌人",
+        "pole": "A",
+        "likelihood": 0.80
+      },
+      {
+        "text": "冒着土匪随时会醒来的风险，布下天罗地网，时候一到便可将土匪一网打尽",
+        "pole": "S",
+        "likelihood": 0.85
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-036",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "在游玩rpg游戏时，你遇到了一个挡路的巨魔，它要求你去破解一旁保险箱的密码，把保险箱里的物品给它，它才会让路。当然，你也可以选择攻击这个十分强大的巨魔。",
+    "prompt": "你会：",
+    "options": [
+      {
+        "text": "凭借我高超的技巧，一定能杀死巨魔，我要开战！",
+        "pole": "A",
+        "likelihood": 0.75
+      },
+      {
+        "text": "耐心地花时间破解保险箱密码，再根据实际情况决定是否要把内容物交给巨魔",
+        "pole": "S",
+        "likelihood": 0.70
+      }
+    ]
+  },
+  {
+    "id": "q-scn-d4-037",
+    "type": "scenario",
+    "dimension": "D4",
+    "scenario": "你正在游玩某款第一人称射击pve游戏，这款游戏为了塑造强烈的视觉冲击感，添加了大量的特效与溅血效果，但这些特效也一定程度上干扰了你的信息获取能力。",
+    "prompt": "对此你会这么看？",
+    "options": [
+      {
+        "text": "在游戏设置里减少甚至关闭特效，信息获取和判断至上",
+        "pole": "S",
+        "likelihood": 0.60
+      },
+      {
+        "text": "游戏的这些特效是重要的玩点，是爽快感的重要来源，不会轻易关闭这些特效",
+        "pole": "A",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d4-038",
+    "type": "plain",
+    "dimension": "D4",
+    "scenario": "",
+    "prompt": "你喜欢“刺激”的场景吗？",
+    "options": [
+      {
+        "text": "是",
+        "pole": "A",
+        "likelihood": 0.85
+      },
+      {
+        "text": "否",
+        "pole": "S",
+        "likelihood": 0.75
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d4-039",
+    "type": "plain",
+    "dimension": "D4",
+    "scenario": "",
+    "prompt": "你觉得游戏中塞入大量需要“动脑筋”的机制（例如《以撒的结合》中的运营要素，以及绝大多数战棋游戏）是否会变得有趣？",
+    "options": [
+      {
+        "text": "是",
+        "pole": "S",
+        "likelihood": 0.90
+      },
+      {
+        "text": "否",
+        "pole": "A",
+        "likelihood": 0.80
+      }
+    ]
+  },
+  {
+    "id": "q-pln-d4-040",
+    "type": "plain",
+    "dimension": "D4",
+    "scenario": "",
+    "prompt": "以下哪种游戏情境更会让你舒适？",
+    "options": [
+      {
+        "text": "“精准弹反”、“完美闪避”",
+        "pole": "A",
+        "likelihood": 0.90
+      },
+      {
+        "text": "“老谋深算”、“战术大师”",
+        "pole": "S",
+        "likelihood": 0.90
+      }
+    ]
+  }
+]

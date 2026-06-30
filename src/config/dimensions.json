@@ -1,0 +1,37 @@
+{
+    "dimensions":[
+        {
+            "key": "D1",
+            "label": "核心乐趣",
+            "poles": [
+                { "id": "C", "label": "挑战驱动型", "description": "享受克服困难的过程，追求智力或操作上的成就感" },
+                { "id": "I", "label": "沉浸体验型", "description": "看重情感共鸣与世界观的代入感" }
+            ]
+        },
+        {
+            "key":"D2",
+            "label":"玩法边界",
+            "poles":[
+                { "id": "R", "label": "规则导向型", "description": "倾向于在既定的系统框架内寻找最优解"},
+                { "id": "C", "label": "创造导向型", "description": "倾向于打破常规，测试游戏的边界"}
+            ]
+        },
+        {
+            "key":"D3",
+            "label":"能量来源",
+            "poles":[
+                { "id": "E", "label": "社交互动型", "description": "将游戏视为交友平台或团队协作的试炼场"},
+                { "id": "I", "label": "独立探索型", "description": "偏好不受外界干扰的个人时光"}
+            ]
+        },
+        {
+            "key":"D4",
+            "label":"决策节奏",
+            "poles":[
+                { "id": "A", "label": "行动反馈型", "description": "偏好快节奏、即时反馈的体验"},
+                { "id": "S", "label": "策略规划型", "description": "偏好慢节奏、深思熟虑的体验"}
+            ]
+        }
+    ]
+
+}
