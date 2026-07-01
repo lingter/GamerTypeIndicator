@@ -1,22 +1,3 @@
-/**
- * 全局状态管理（Zustand）。
- *
- * 分层契约：
- *   数据层 (questions.json / dimensions.json / results.json)
- *     → 引擎层 (engine/queue.ts + engine/bayesian.ts)   ← 第一阶段，纯函数
- *       → store 层 (本文件)                              ← 第一阶段之上的薄封装
- *         → UI 层 (App.tsx 等 React 组件)
- *
- * store 的职责仅限：
- *   1. 持有「对 UI 有意义的派生状态」——队列、进度、四维先验、终局结果。
- *   2. 把 UI 事件转译成对引擎纯函数的调用，再把结果写回自身。
- * store 不实现任何贝叶斯运算——所有概率更新都委托给 engine/bayesian.ts，
- * 保证引擎可独立测试、可被 CLI/其它前端复用。
- *
- * 字段语义与第一阶段一致：
- *   - prob0：单维度属于 poles[0] 的概率；P(poles[0])=prob0, P(poles[1])=1-prob0。
- *   - 初始先验 0.5（无信息先验），由 createInitialState 设定。
- */
 import { create } from 'zustand';
 import type {
   AssessmentState,
@@ -55,15 +36,7 @@ export interface QuizResult {
   }>;
 }
 
-/**
- * 答题流程的阶段。
- * - 'answering'  正常答题中。
- * - 'transition' 情景段答完的过渡提示页（用户点“继续”后回到 'answering'）。
- * - 'finished'   全部答完，展示结果。
- *
- * 仅在分布策略为 grouped 且题库满 28 情景题时，'transition' 才会触发；
- * 占位小题库（<28 情景）下不会进入过渡页，保证阶段二行为不变。
- */
+/** 答题流程的阶段 */
 export type QuizPhase = 'answering' | 'transition' | 'finished';
 
 /** 数据加载适配器：生产用 fetch，测试可注入 mock。 */

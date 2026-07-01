@@ -1,17 +1,3 @@
-/**
- * 海报生成 hook：用 html2canvas 把指定 DOM 节点转成图片。
- *
- * 关键兼容处理：
- * 1. html2canvas 不支持 Tailwind v4 的 oklch() 色彩 —— ResultPage 的海报节点
- *    全程用内联 style 的 hex/rgb 色，不依赖 Tailwind 颜色类（布局类如 flex/p-4 不受影响）。
- * 2. ECharts 是 canvas 渲染。html2canvas 默认会把目标节点内的 canvas 元素一起截图，
- *    这里配置 `foreignObjectRendering: false` 走 DOM 克隆路径，canvas 会以
- *    toDataURL 形式被复制进克隆；如遇个别版本异常，调用方传入 scale 提升清晰度。
- *
- * 移动端适配：
- * - scale 用 devicePixelRatio（DPR），保证视网膜屏海报清晰；上限 3 防止内存爆炸。
- * - 先按节点实际渲染尺寸截图，再做下载，避免用窗口尺寸导致裁剪。
- */
 import { useCallback, useState } from 'react';
 import type { Options } from 'html2canvas';
 
@@ -56,7 +42,7 @@ export function usePoster(): UsePosterResult {
         logging: false,
         // 窗口尺寸回退，避免某些环境下 width/height 探测为 0。
         windowWidth: target.offsetWidth,
-        windowHeight: target.offsetHeight,
+        windowHeight: target.offsetHeight
       };
 
       const canvas = await html2canvas(target, options as Options);
@@ -73,7 +59,7 @@ export function usePoster(): UsePosterResult {
   }, []);
 
   const download = useCallback(
-    (filename = 'gamebti-report.png') => {
+    (filename = 'GamerTypeIndicator-report.png') => {
       if (!dataUrl) return;
       const a = document.createElement('a');
       a.href = dataUrl;

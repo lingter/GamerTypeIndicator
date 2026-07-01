@@ -1,16 +1,3 @@
-/**
- * 过渡提示页：情景段答完（第 28 题）后、非情景段首题展示前的“中场提示”。
- *
- * 触发条件（store 内判定）：
- *   - queue 为 grouped 策略、情景题满 28 时，handleAnswer 将 currentIndex 推到 28
- *     且仍有后续非情景题 ⇒ phase 切到 'transition'。
- *   - 占位小题库（<28 情景）不会进入此页。
- *
- * 交互：用户点“继续” → continueAfterTransition() → phase 回 'answering'，
- * App 随即渲染 queue[28]（非情景段首题）。
- *
- * 视觉：极简文案 + 单按钮；用 overlayVariants 做淡入抬升，与卡片切换区分层级。
- */
 import { motion } from 'framer-motion';
 import { useQuizStore } from '../store/quizStore';
 import { overlayVariants, overlayTransition } from './motion';

@@ -1,19 +1,3 @@
-/**
- * 答题主卡片：一题一页。
- *
- * 渲染职责（对应需求“根据 currentIndex 读取当前题，渲染题目文本与双选项”）：
- *   1. 从 store 取 queue[currentIndex]，渲染 scenario 背景 + prompt + 双 option 按钮。
- *   2. 点击 option → handleAnswer(i)；store 推进 currentIndex 后，motion key 变化，
- *      由 AnimatePresence 触发“旧卡左滑出 + 新卡右滑入淡入”。
- *
- * 动画说明：
- *   - 用 currentIndex 作 motion.div 的 key；key 改变时 AnimatePresence 让旧节点 exit、新节点 enter。
- *   - custom={1} 传给 variants，表示“前进”方向（左出右入）。
- *   - mode="popLayout"：旧卡退出时不占位，新卡可立即进场，避免双卡碰撞的跳动。
- *   - 选项按钮单独有 hover/tap 微动效（scale），与卡片层切换解耦。
- *
- * 防误触：切换动画进行中（0.32s）禁用按钮，避免连点跳题。用 ref + 状态锁实现。
- */
 import { useState, useRef, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useQuizStore } from '../store/quizStore';

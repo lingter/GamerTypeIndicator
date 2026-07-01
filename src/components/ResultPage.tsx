@@ -1,20 +1,3 @@
-/**
- * 结果页 ResultPage（阶段四）。
- *
- * 分两层：
- * 1) 海报捕获区 (posterRef)：所有视觉元素用「内联 hex/rgb 色」渲染 ——
- *    因为 Tailwind v4 默认 oklch() 色彩，html2canvas 解析 oklch 会抛
- *    "Attempting to parse an unsupported color function"。
- *    布局相关 class（flex / p-4 / rounded / grid 等）不含颜色，可正常使用；
- *    凡是带颜色的属性一律走 style 内联，保证海报截图万无一失。
- * 2) 交互区（生成按钮 + 预览弹窗）：用 Tailwind 颜色类无妨，不参与截图。
- *
- * 内容排版（对应需求）：
- * - 性格 code（4 字母）+ 游戏角色图占位 + 判词 title + 描述 description
- * - 雷达图（ECharts，展示四维两极概率）
- * - traits 特征 / recommendations 推荐
- * - 底部「生成专属成分报告」按钮 → html2canvas 截图 → 预览弹窗（长按保存 / 下载）
- */
 import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuizStore } from '../store/quizStore';
@@ -140,12 +123,12 @@ export default function ResultPage() {
           ) : (
             <img
               src={portraitSrc}
-              alt={`${finalResult.code} 角色立绘`}
+              alt={`${finalResult.code}`}
               onError={() => setPortraitError(true)}
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           )}
-          {/* 角色名标签：底部半透明条，内联色 */}
+          {/* 图片描述：底部半透明条，内联色 */}
           <div
             style={{
               position: 'absolute',
@@ -160,14 +143,14 @@ export default function ResultPage() {
             }}
           >
             <span style={{ fontSize: '12px', fontWeight: 400, fontStyle: 'italic', color: '#d3d3d3' }}>
-              {finalResult.profile?.photo ?? '未知角色'}
+              {finalResult.profile?.photo ?? '无法获取图片描述'}
             </span>
           </div>
         </div>
 
         {/* 判词/描述 */}
         <p style={{ fontSize: '14px', lineHeight: 1.7, color: C.textMuted, textAlign: 'center', margin: 0 }}>
-          {finalResult.profile?.description ?? '（结果描述文案后续阶段补充）'}
+          {finalResult.profile?.description ?? '无法获取结果文案'}
         </p>
 
         {/* 雷达图 */}
@@ -194,7 +177,7 @@ export default function ResultPage() {
           })}
         </div>
 
-        {/* 推荐游戏（新增） */}
+        {/* 推荐游戏 */}
         {finalResult.profile?.recommend && finalResult.profile.recommend.length > 0 && (
           <Block
             label="推荐游戏"
@@ -252,7 +235,7 @@ export default function ResultPage() {
   );
 }
 
-/** traits / recommendations 小区块（颜色全内联）。 */
+/** 游戏推荐小区块（颜色全内联）。 */
 function Block(props: {
   label: string;
   items: string[];
@@ -285,11 +268,7 @@ function Block(props: {
   );
 }
 
-/**
- * 海报预览弹窗：展示生成的图片 + 下载 / 关闭。
- * - 移动端：图片宽度 100%，弹窗纵向铺满；提示“长按图片保存”。
- * - 桌面端：居中卡片，提供下载按钮。
- */
+/** 海报预览弹窗：展示生成的图片 + 下载 / 关闭 */
 function PreviewDialog(props: { dataUrl: string; onClose: () => void; onDownload: () => void }) {
   return (
     <div
@@ -302,7 +281,7 @@ function PreviewDialog(props: { dataUrl: string; onClose: () => void; onDownload
       >
         <img
           src={props.dataUrl}
-          alt="GameBTI 成分报告"
+          alt="游戏人格成分报告"
           className="max-h-[70vh] w-auto rounded-lg object-contain"
         />
         <div className="flex flex-col items-center gap-1 text-center">

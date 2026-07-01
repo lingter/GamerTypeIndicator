@@ -99,8 +99,6 @@ export interface ResultProfile {
   code: ResultCode;
   /** 结果昵称，如“探索者”。 */
   title: string;
-  /** 角色昵称，如“烬锋”。对应 public/characters/{code}.* 立绘。 */
-  characterName?: string;
   /** 结果长文案，后续阶段补充。 */
   description: string;
   /** 该结果在游戏行为上的典型特征列表（占位，后续补充）。 */
@@ -109,16 +107,6 @@ export interface ResultProfile {
   recommend: string[];
 }
 
-/* ------------------------------------------------------------------ */
-/* 运行时状态（引擎内部，非 json）                                      */
-/* ------------------------------------------------------------------ */
-
-/**
- * 单维度的贝叶斯状态。
- * - prob：当前认为用户属于 poles[0] 的后验概率（poles[1] = 1 - prob）。
- *         用一个标量即可表达两个极，避免存冗余的两个值。
- * - evidence：累计的证据计数，仅用于审计/调试，不参与计算。
- */
 export interface DimensionState {
   key: DimensionKey;
   /** 0~1，用户属于 poles[0] 的概率。 */

@@ -1,21 +1,3 @@
-/**
- * ECharts 雷达图：展示四维度的倾向置信度。
- *
- * 设计（4 轴方案，已修复旧 8 轴错位问题）：
- * - 每个维度一条轴，轴名用维度 label（战斗/节奏/社交/风险），共 4 轴，呈正方形对角分布。
- * - 每条轴的值 = 该维度命中极的置信度（0~100）。
- *   雷达形状越“满”说明各维倾向越强；形状偏向哪一角，对应维度越极致。
- * - 旧版用 8 轴（每维度两极各一轴）会在小容器里挤掉轴名且图形错位，
- *   4 轴方案是标准 MBTI 雷达，标签与图形永远居中对齐，不会错位。
- *
- * html2canvas 兼容：
- * - Tailwind v4 默认 oklch() 色彩空间，html2canvas 无法解析会抛错。
- *   ECharts 自身用 Canvas 渲染，但被海报截图时仍以 canvas 快照处理；
- *   所有 color 配置统一用 #hex / rgb()，避开 oklch。
- *
- * 移动端适配：
- * - 容器用 100% 宽 + 固定比例高度；ECharts 自适应 resize（含 ResizeObserver）。
- */
 import { useEffect, useRef } from 'react';
 // 按需引入 echarts：仅为雷达图 + tooltip + canvas 渲染打包，减小首屏体积。
 // echarts/core 提供类型完整的 init/use/use/EChartsCoreOption，比 'echarts' 总入口更稳。
@@ -77,23 +59,6 @@ export default function RadarChart({ dimensions, result }: Props) {
   );
 }
 
-/**
- * 构造 ECharts option（4 轴方案）。
- *
- * 轴布局（indicator）：4 个维度各一条轴，轴名 = 维度 label，max 100。
- *   4 轴默认在 0°/90°/180°/270° 正交分布，呈正方形。
- *
- * 数据（series.data[0].value）：每维取命中极置信度（0~100）。
- *
- * 配色全部 hex/rgb，规避 oklch：
- *   - 命中区填充 rgba(255,255,255,0.22)，描边 #ffffff，在深色海报上醒目。
- *   - 轴线/分割线用低对比灰，避免喧宾夺主。
- *
- * 关键防错位参数：
- *   - radius: '60%' + center: ['50%', '50%']：严格居中，给四周标签留出空间。
- *   - axisName.formatter：轴名后附置信度百分比，信息量更高且不依赖 tooltip。
- *   - axisName 颜色/字号固定，padding 避免标签压到分割圈。
- */
 function buildOption(dimensions: Dimension[], result: QuizResult): echarts.EChartsCoreOption {
   // 1) 拼 indicator：每维度一条轴，轴名带命中极小注。
   const indicator: Array<{ name: string; max: number }> = [];

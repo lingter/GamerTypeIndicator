@@ -1,33 +1,27 @@
 /**
- * 队列构建：读取题目 → 拆分情景/非情景 → 各自洗牌 → 拼成指定长度的最终队列。
+ * 队列构建模块。
  *
- * 模块化边界：本模块只负责“出题顺序”，不碰概率计算（见 bayesian.ts），
- * 也不碰 DOM/框架。可被任意前端/CLI/测试复用。
+ * 解决了什么问题：
+ * - 40 道题目分属 4 个维度和 2 种类型（情景/非情景），原始顺序连续同维或同类型
+ *   会造成答题疲劳，且 UI 需要在第 28 题后插入过渡提示页，要求情景题全部在前。
+ *
+ * 方案：
+ * - Fisher-Yates 洗牌保证段内题序均匀且无偏。
+ * - Grouped 策略将情景题段严格放在前 28 位，非情景题段在后 12 位，
+ *   使 currentIndex === 28 成为天然的过渡触发点。
+ * - 分布校验在数据不匹配时期抛错，早暴露问题而非静默截断。
+ *
+ * 边界：本模块只负责出题顺序，不碰概率计算（见 bayesian.ts），
+ * 也不碰 DOM / 框架，可被任意前端 / CLI / 测试复用。
  */
 import type { DimensionKey, Question, QuestionType } from '../types/schema';
 
 /** 默认似然：题目 option 没写 likelihood 时使用。区分度 0.8 是经验值。 */
 export const DEFAULT_LIKELIHOOD = 0.8;
 
-/**
- * 队列拼接策略。
- * - grouped：先放全部情景题，再放全部非情景题；段内各自洗牌。
- *   👉 用于阶段三“情景题答完(第28题)→过渡提示→非情景题”的分段体验，
- *      保证情景题集中在 0..scenario-1。
- * - interleaved：两段合并后再整体打散一次，避免连续同类型造成疲劳。
- *   向后兼容保留；如未来想做“类型穿插”体验可切回此策略。
- */
+/** 队列拼接策略 */
 export type QueueStrategy = 'grouped' | 'interleaved';
 
-/* ------------------------------------------------------------------ */
-/* 内部工具                                                            */
-/* ------------------------------------------------------------------ */
-
-/**
- * Fisher–Yates 洗牌（in-place 的纯函数副本版本）。
- * - 不直接 mutate 入参，返回一个新数组，便于函数式调用与测试。
- * - 提供 rng 注入点：默认 Math.random；测试时可传入确定性 PRNG 做快照。
- */
 function shuffle<T>(input: readonly T[], rng: () => number = Math.random): T[] {
   const arr = input.slice();
   for (let i = arr.length - 1; i > 0; i--) {
@@ -68,11 +62,6 @@ function assertDistribution(
   }
 }
 
-/* ------------------------------------------------------------------ */
-/* 公共 API                                                            */
-/* ------------------------------------------------------------------ */
-
-/** 题目分布契约：40 题 = 28 情景 + 12 非情景。 */
 export interface QuestionDistribution {
   /** 情景题数量。 */
   scenario: number;
@@ -89,23 +78,6 @@ export const DEFAULT_DISTRIBUTION: QuestionDistribution = {
 /** 默认队列策略：分段（情景题在前，适配阶段三的过渡提示切分点）。 */
 export const DEFAULT_STRATEGY: QueueStrategy = 'grouped';
 
-/**
- * 构建完整 40 题队列的核心入口。
- *
- * 步骤（对应需求三点）：
- * 1. 读取并分离情景题与非情景题（partitionByType）。
- * 2. 两组各自独立洗牌（shuffle），保证同一维度内的题目顺序随机，
- *    但情景题与非情景题的相对顺序由第 3 步决定。
- * 3. 拼接：默认采用“交错穿插”策略——把洗牌后的情景题在前、非情景题在后，
- *    再整体打散一次，避免一整段同类型题目造成答题疲劳。
- *    （如需“情景题优先”或“分组”等其它策略，可在此扩展。）
- *
- * @param questions 原始题目全集（含情景与非情景）。
- * @param distribution 期望的题量分布，默认 28+12。
- * @param strategy 拼接策略，默认 'grouped'（情景段在前）。
- * @param rng 注入式随机源，默认 Math.random；测试可传确定性函数。
- * @returns 最终答题队列，长度 = scenario + plain。
- */
 export function buildQueue(
   questions: readonly Question[],
   distribution: QuestionDistribution = DEFAULT_DISTRIBUTION,
